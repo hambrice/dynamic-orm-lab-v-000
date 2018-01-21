@@ -12,9 +12,9 @@ class InteractiveRecord
     array = DB[:conn].execute(sql)
     column_names = []
     array.each do |item|
-      if item["name"] != "id"
+      #if item["name"] != "id"
         column_names << item["name"]
-      end
+      #end
     end
     column_names.compact
   end
@@ -31,7 +31,7 @@ class InteractiveRecord
   end
 
   def col_names_for_insert
-    self.class.column_names.join(", ")
+    self.class.column_names.delete_if {|col| col == "id"}.join(", ")
   end
 
 
