@@ -8,6 +8,6 @@ class Student < InteractiveRecord
       attr_accessor col_name.to_sym
     end
 
-    binding.pry
+    #binding.pry
 
 end
