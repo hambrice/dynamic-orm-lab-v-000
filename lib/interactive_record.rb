@@ -8,7 +8,7 @@ class InteractiveRecord
   end
 
   def self.column_names
-    sql = "PRAGMA table_info('#{table_name}')"
+    sql = "PRAGMA table_info('#{self.table_name}')"
     array = DB[:conn].execute(sql)
     column_names = []
     array.each do |item|
