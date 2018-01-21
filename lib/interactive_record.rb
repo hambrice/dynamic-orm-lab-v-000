@@ -12,7 +12,8 @@ class InteractiveRecord
     array = DB[:conn].execute(sql)
     column_names = []
     array.each do |item|
-      column_names << array["name"]
+      column_names << item["name"]
     end
+    column_names.compact
   end
 end
