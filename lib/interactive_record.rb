@@ -1,6 +1,6 @@
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
-
+require 'pry'
 class InteractiveRecord
 
   def self.table_name
@@ -15,6 +15,7 @@ class InteractiveRecord
       column_names << item["name"]
     end
     column_names.compact
+    binding.pry
   end
 
   self.column_names.each do |col_name|
@@ -22,7 +23,8 @@ class InteractiveRecord
     end
 
   def initialize(options = {})
-    options.each do |key, value| 
+    binding.pry
+    options.each do |key, value|
       self.send("#{key}=", value)
     end
   end
