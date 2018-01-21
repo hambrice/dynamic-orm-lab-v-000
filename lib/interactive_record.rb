@@ -17,8 +17,6 @@ class InteractiveRecord
     column_names.compact
   end
 
-  
-
   def initialize(options = {})
     #binding.pry
     options.each do |key, value|
@@ -26,4 +24,9 @@ class InteractiveRecord
     end
   end
 
+  def table_name_for_insert
+    self.class.table_name
+  end
+
+  def
 end
