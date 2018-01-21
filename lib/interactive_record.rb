@@ -6,4 +6,13 @@ class InteractiveRecord
   def self.table_name
     self.to_s.downcase.pluralize
   end
+
+  def self.column_names
+    sql = "PRAGMA table_info('#{table_name}')"
+    array = DB[:conn].execute(sql)
+    column_names = []
+    array.each do |item|
+      column_names << array["name"]
+    end
+  end
 end
